@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생맞춤통합지원 시스템 - 모두이음</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        
+        .logo-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .tab-active {
+            border-bottom: 3px solid #6366f1;
+            color: #6366f1;
+            font-weight: 600;
+        }
+        
+        .support-item {
+            border-left: 4px solid #6366f1;
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white rounded-full p-2 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold">학생맞춤통합지원 시스템</h1>
+                        <p class="text-indigo-100">모든 학생의 성장을 지원하는 통합지원 플랫폼</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="text-white hover:text-indigo-200 transition-all">홈</a>
+                    <a href="#about" class="text-white hover:text-indigo-200 transition-all">소개</a>
+                    <a href="#support" class="text-white hover:text-indigo-200 transition-all">지원안내</a>
+                    <a href="#network" class="text-white hover:text-indigo-200 transition-all">유관기관</a>
+                    <a href="#faq" class="text-white hover:text-indigo-200 transition-all">FAQ</a>
+                </div>
+                <button class="md:hidden text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        모두이음으로<br>
+                        모든 학생의 성장을<br>
+                        함께 지원합니다
+                    </h1>
+                    <p class="text-xl text-indigo-100 mb-8">
+                        복합적인 어려움을 겪는 학생들을 위한 통합지원 시스템으로<br>
+                        학교-교육청-지역사회가 하나로 연결됩니다.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#support-form" class="bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-3 rounded-lg font-semibold text-center transition-all shadow-lg">
+                            지원 신청하기
+                        </a>
+                        <a href="#about" class="border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-8 py-3 rounded-lg font-semibold text-center transition-all">
+                            더 알아보기
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -top-10 -left-10 w-32 h-32 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                        <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                        <div class="absolute top-20 right-20 w-32 h-32 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+                        <div class="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+                            <div class="bg-indigo-600 p-4 text-white">
+                                <h3 class="font-bold text-lg">학생맞춤통합지원</h3>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-user-graduate text-indigo-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">학생 중심 지원</h4>
+                                        <p class="text-gray-600 text-sm">학생의 능력과 특성에 맞춘 통합지원</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-hands-helping text-purple-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">유관기관 연계</h4>
+                                        <p class="text-gray-600 text-sm">학교-교육청-지역사회 유기적 협력</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                        <i class="fas fa-heart text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">심리·정서 지원</h4>
+                                        <p class="text-gray-600 text-sm">학생의 마음건강 종합관리</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">학생맞춤통합지원 <span class="logo-text">모두이음</span>이란?</h2>
+                <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    모든 학생이 능력과 특성에 맞춰 교육을 받을 수 있도록 다양한 어려움을 교직원의 협력적 소통을 통해 조기에 발굴하여<br>
+                    학교-교육청-지역사회를 모두 이어서 통합 지원하는 체계입니다.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover transition-all">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-search text-indigo-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">학생 발굴</h3>
+                    <p class="text-gray-600 text-center">
+                        다양한 어려움을 가진 학생을 조기에 발굴하여 통합진단을 실시합니다.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover transition-all">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-hands-helping text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">통합 지원</h3>
+                    <p class="text-gray-600 text-center">
+                        학교 내·외부 자원을 연계하여 학생에게 맞춤형 지원을 제공합니다.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover transition-all">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-chart-line text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-4 text-gray-800">성장 모니터링</h3>
+                    <p class="text-gray-600 text-center">
+                        지원 과정을 지속적으로 모니터링하여 학생의 성장을 돕습니다.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-indigo-50 rounded-xl p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">통합지원팀이란?</h3>
+                        <p class="text-gray-600 mb-6">
+                            다양한 어려움을 가진 학생 발굴-지원-연계를 위한 학교 내 협의체로,<br>
+                            발굴된 학생의 통합진단 및 개별사업 연계로 적기 대응합니다.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-indigo-600 mt-1 mr-2"></i>
+                                <span class="text-gray-700">학교 내 학생맞춤통합지원위원회 운영</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-indigo-600 mt-1 mr-2"></i>
+                                <span class="text-gray-700">교육청 실무추진단과의 유기적 협력</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-indigo-600 mt-1 mr-2"></i>
+                                <span class="text-gray-700">지역사회 유관기관과의 연계 체계 구축</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-center mb-6">
+                                <h4 class="font-bold text-lg text-gray-800">학생맞춤통합지원 체계</h4>
+                                <div class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">모두이음</div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="bg-indigo-100 p-2 rounded-full mr-4">
+                                        <i class="fas fa-school text-indigo-600"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">학교 내 지원</h5>
+                                        <p class="text-sm text-gray-600">학생 발굴 및 1차 지원</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-purple-100 p-2 rounded-full mr-4">
+                                        <i class="fas fa-graduation-cap text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">교육청 지원</h5>
+                                        <p class="text-sm text-gray-600">추가 지원이 필요한 복합위기학생 지원</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                        <i class="fas fa-hands-helping text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-gray-800">지역사회 연계</h5>
+                                        <p class="text-sm text-gray-600">유관기관과의 협력적 지원 체계</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Process Section -->
+    <section id="support" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">지원 절차 안내</h2>
+                <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    학생맞춤통합지원 모두이음은 학교 내 자체 해결이 불가능한 복합위기학생을 위한 통합지원 시스템입니다.
+                </p>
+            </div>
+            
+            <div class="mb-16">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                    <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">학교 내 지원 절차</h3>
+                        <p class="text-gray-600 mb-6">
+                            학교 내에서 학생의 어려움을 발굴하고, 통합진단을 통해 지원 방향을 결정합니다.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="bg-indigo-100 text-indigo-800 font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">1</div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">학생 위기 징후 조기 발굴 의뢰</h4>
+                                    <p class="text-gray-600 text-sm">담임교사, 상담교사 등이 학생의 어려움을 발굴</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-indigo-100 text-indigo-800 font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">2</div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">통합진단</h4>
+                                    <p class="text-gray-600 text-sm">학생맞춤통합지원위원회에서 현상·문제 진단 및 개입방향 모색</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-indigo-100 text-indigo-800 font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">3</div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">통합지원</h4>
+                                    <p class="text-gray-600 text-sm">내·외부 자원 연계·조정·지원</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <img src="https://via.placeholder.com/600x400/f3f4f6/cccccc?text=School+Support+Process" alt="학교 지원 절차" class="w-full rounded-lg">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0 order-2 md:order-1">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <img src="https://via.placeholder.com/600x400/f3f4f6/cccccc?text=Education+Office+Support" alt="교육청 지원 절차" class="w-full rounded-lg">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 md:pl-8 order-1 md:order-2">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">교육청 지원 절차</h3>
+                        <p class="text-gray-600 mb-6">
+                            학교 내 지원으로 해결이 어려운 경우, 교육청 모두이음을 통해 추가 지원을 받을 수 있습니다.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="bg-purple-100 text-purple-800 font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">1</div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">접수신청</h4>
+                                    <p class="text-gray-600 text-sm">학교 내 학생맞춤 통합위원회 협의 후 『모두이음』 신청</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-purple-100 text-purple-800 font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">2</div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">통합진단</h4>
+                                    <p class="text-gray-600 text-sm">실무추진단 협의를 통한 통합진단 및 지원 계획 수립</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-purple-100 text-purple-800 font-bold rounded-full w-8 h-8 flex items-center justify-center mr-4">3</div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">통합지원</h4>
+                                    <p class="text-gray-600 text-sm">실무추진단 및 지역사회 협력기관 통합지원 실시</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6 border-b">
+                    <h3 class="text-xl font-bold text-gray-800">지원 대상 및 영역</h3>
+                </div>
+                <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x">
+                    <div class="p-6">
+                        <h4 class="font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-user-graduate text-indigo-600 mr-2"></i>
+                            지원 대상
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                                <span class="text-gray-700">초·중·고·특·각종학교 학생</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                                <span class="text-gray-700">학교 내 자체 해결이 불가능한 복합위기학생</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-indigo-600 mt-1 mr-2"></i>
+                                <span class="text-gray-700">기초학력, 심리정서, 다문화, 특수, 교육복지 등 복합적인 어려움을 겪는 학생</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-tasks text-purple-600 mr-2"></i>
+                            지원 영역
+                        </h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <span class="bg-indigo-50 text-indigo-800 px-3 py-1 rounded-full text-sm">교육복지지원</span>
+                            <span class="bg-indigo-50 text-indigo-800 px-3 py-1 rounded-full text-sm">기초학력</span>
+                            <span class="bg-purple-50 text-purple-800 px-3 py-1 rounded-full text-sm">심리·정서</span>
+                            <span class="bg-purple-50 text-purple-800 px-3 py-1 rounded-full text-sm">학교폭력</span>
+                            <span class="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-sm">다문화</span>
+                            <span class="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-sm">특수교육</span>
+                            <span class="bg-green-50 text-green-800 px-3 py-1 rounded-full text-sm">학업중단예방</span>
+                            <span class="bg-green-50 text-green-800 px-3 py-1 rounded-full text-sm">마음건강</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Form Section -->
+    <section id="support-form" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">학생맞춤통합지원 신청</h2>
+                    <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        지원이 필요한 학생에 대한 정보를 입력해주세요. 학교 내 협의 후 공문으로 신청해주시기 바랍니다.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl shadow-lg p-8">
+                    <form id="studentSupportForm">
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div>
+                                <label for="schoolName" class="block text-gray-700 font-medium mb-2">학교명</label>
+                                <input type="text" id="schoolName" name="schoolName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                            </div>
+                            <div>
+                                <label for="studentName" class="block text-gray-700 font-medium mb-2">학생 이름</label>
+                                <input type="text" id="studentName" name="studentName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                            </div>
+                            <div>
+                                <label for="grade" class="block text-gray-700 font-medium mb-2">학년/반</label>
+                                <input type="text" id="grade" name="grade" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                            </div>
+                            <div>
+                                <label for="contact" class="block text-gray-700 font-medium mb-2">연락처</label>
+                                <input type="tel" id="contact" name="contact" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <label class="block text-gray-700 font-medium mb-4">지원이 필요한 영역 (복수 선택 가능)</label>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="support1" name="supportArea" value="기초학력" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                    <label for="support1" class="ml-2 text-gray-700">기초학력</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="support2" name="supportArea" value="심리정서" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                    <label for="support2" class="ml-2 text-gray-700">심리정서</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="support3" name="supportArea" value="다문화" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                    <label for="support3" class="ml-2 text-gray-700">다문화</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="support4" name="supportArea" value="특수교육" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                    <label for="support4" class="ml-2 text-gray-700">특수교육</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="support5" name="supportArea" value="교육복지" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                    <label for="support5" class="ml-2 text-gray-700">교육복지</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="support6" name="supportArea" value="학교폭력" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+                                    <label for="support6" class="ml-2 text-gray-700">학교폭력</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <label for="studentInfo" class="block text-gray-700 font-medium mb-2">학생 정보 및 지원 필요 내용</label>
+                            <textarea id="studentInfo" name="studentInfo" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required></textarea>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <label for="supportHistory" class="block text-gray-700 font-medium mb-2">기존 지원 내역 (있을 경우)</label>
+                            <textarea id="supportHistory" name="supportHistory" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                        </div>
+                        
+                        <div class="flex items-center mb-8">
+                            <input type="checkbox" id="parentAgreement" name="parentAgreement" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" required>
+                            <label for="parentAgreement" class="ml-2 text-gray-700">법정 보호자 동의를 받았음을 확인합니다.</label>
+                        </div>
+                        
+                        <div class="flex justify-center">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-semibold transition-all shadow-lg">
+                                신청서 제출하기
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Section -->
+    <section id="network" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">유관기관 네트워크</h2>
+                <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    학생맞춤통합지원을 위한 교육청 부서 및 지역사회 유관기관 정보
+                </p>
+            </div>
+            
+            <div class="mb-12">
+                <div class="flex overflow-x-auto pb-4">
+                    <button class="tab-button px-6 py-3 font-medium text-gray-600 whitespace-nowrap" data-tab="all">전체</button>
+                    <button class="tab-button px-6 py-3 font-medium text-gray-600 whitespace-nowrap" data-tab="psychology">심리·정서</button>
+                    <button class="tab-button px-6 py-3 font-medium text-gray-600 whitespace-nowrap" data-tab="child">아동지원</button>
+                    <button class="tab-button px-6 py-3 font-medium text-gray-600 whitespace-nowrap" data-tab="multiculture">다문화</button>
+                    <button class="tab-button px-6 py-3 font-medium text-gray-600 whitespace-nowrap" data-tab="special">특수교육</button>
+                    <button class="tab-button px-6 py-3 font-medium text-gray-600 whitespace-nowrap" data-tab="health">마음건강</button>
+                    <button class="tab-button px-6 py-3 font-medium text-gray-600 whitespace-nowrap" data-tab="ngo">NGO</button>
+                </div>
+            </div>
+            
+            <div id="network-content" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Content will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">자주 묻는 질문</h2>
+                <div class="w-24 h-1 bg-indigo-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    학생맞춤통합지원 모두이음에 대해 궁금한 점을 확인해보세요.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-4">
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-question w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition-all">
+                            <h3 class="font-semibold text-gray-800">「모두이음」 지원을 받을 수 있는 학생은 누구인가요?</h3>
+                            <i class="fas fa-chevron-down text-indigo-600 transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden p-6 bg-white">
+                            <p class="text-gray-600">
+                                모두이음은 기초학력, 심리정서, 다문화, 특수, 교육복지 등 복합적인 어려움으로 학교 생활에 도움이 필요한 학생이라면 누구나 지원을 받을 수 있습니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-question w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition-all">
+                            <h3 class="font-semibold text-gray-800">「모두이음」 신청을 위한 학교의 역할은 무엇인가요?</h3>
+                            <i class="fas fa-chevron-down text-indigo-600 transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden p-6 bg-white">
+                            <p class="text-gray-600">
+                                먼저 학교에서 지원이 필요한 학생에 대하여 지원하고, 그 후 추가적인 지원이 필요하다고 생각되는 학생을 발굴하여 공문으로 신청하시면 됩니다. 교육청으로 전화나 QR 신청을 하더라도 학교로 연락하여 공문 접수할 수 있게 안내드릴 예정입니다. 이는 학생의 성장을 지원하기 위해서 학부모-학교-교육청 모두가 학생에 대한 관심을 갖고 지원하기 위함입니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-question w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition-all">
+                            <h3 class="font-semibold text-gray-800">보호자 동의 없이 지원이 가능한가요?</h3>
+                            <i class="fas fa-chevron-down text-indigo-600 transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden p-6 bg-white">
+                            <p class="text-gray-600">
+                                「모두이음」 지원을 위해서는 법정 보호자 동의가 필수입니다. 다만, 긴급한 경우나 특수한 상황에서는 교육청과 협의를 통해 지원이 가능할 수 있으니 문의해주시기 바랍니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-question w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition-all">
+                            <h3 class="font-semibold text-gray-800">모든 영역에서 지원을 받을 수 있나요?</h3>
+                            <i class="fas fa-chevron-down text-indigo-600 transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden p-6 bg-white">
+                            <p class="text-gray-600">
+                                「모두이음」은 모든 영역에서 지원을 받을 수 있습니다. 다만 학생의 상황을 종합적으로 고려하고, 교육청 및 유관기관에서의 지원 가능 여부에 따라 지원 영역 및 내용을 최종 결정하게 됩니다.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-question w-full flex justify-between items-center p-6 text-left bg-gray-50 hover:bg-gray-100 transition-all">
+                            <h3 class="font-semibold text-gray-800">특정 분야만 지원 받을 수 있나요?</h3>
+                            <i class="fas fa-chevron-down text-indigo-600 transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden p-6 bg-white">
+                            <p class="text-gray-600">
+                                네, 특정 분야만 선택하여 지원을 받을 수 있습니다. 그러나 학생의 문제가 복합적인 경우 통합지원을 권장하며, 이 경우 더 효과적인 지원이 가능합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 bg-indigo-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-indigo-600 text-white p-8 md:p-12">
+                        <h2 class="text-2xl font-bold mb-6">문의하기</h2>
+                        <p class="mb-6">
+                            학생맞춤통합지원 모두이음에 대해 궁금한 점이 있으시면 언제든지 문의해주세요.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">전화 문의</h4>
+                                    <p>044-320-4221, 4232</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">이메일</h4>
+                                    <p>support@modueum.kr</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">주소</h4>
+                                    <p>세종특별자치시 교육청 학생맞춤통합지원팀</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">직접 문의하기</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2">이름</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2">이메일</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 mb-2">문의 내용</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold transition-all">
+                                문의 보내기
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">학생맞춤통합지원</h3>
+                    <p class="text-gray-400">
+                        모든 학생의 성장을 지원하는 통합지원 플랫폼
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">바로가기</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">홈</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-all">소개</a></li>
+                        <li><a href="#support" class="text-gray-400 hover:text-white transition-all">지원안내</a></li>
+                        <li><a href="#network" class="text-gray-400 hover:text-white transition-all">유관기관</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-all">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">연락처</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2"></i>
+                            <span>044-320-4221, 4232</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2"></i>
+                            <span>support@modueum.kr</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>세종특별자치시 교육청</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">SNS</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-indigo-600 transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-400 transition-all">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-red-600 transition-all">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-gray-400 text-center">
+                    &copy; 2025 세종특별자치시교육청 학생맞춤통합지원팀. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const networkContent = document.getElementById('network-content');
+        
+        // Network data
+        const networkData = [
+            {
+                category: 'psychology',
+                title: '세종학생정신건강센터',
+                phone: '044-866-0817',
+                department: '학교정책과',
+                description: '학생들의 심리·정서 지원을 위한 전문 기관'
+            },
+            {
+                category: 'psychology',
+                title: '세종가정형Wee센터',
+                phone: '044-715-7939',
+                department: '학교정책과',
+                description: '가정형 위기 학생을 위한 상담 및 지원'
+            },
+            {
+                category: 'psychology',
+                title: '세종시청소년상담복지센터',
+                phone: '044-867-2000',
+                department: '학교정책과',
+                description: '청소년 상담 및 복지 서비스 제공'
+            },
+            {
+                category: 'child',
+                title: '세종시아동보호전문기관',
+                phone: '044-864-1393',
+                department: '학교정책과',
+                description: '아동학대 예방 및 피해아동 보호'
+            },
+            {
+                category: 'child',
+                title: '세종시경찰서 여성청소년계',
+                phone: '182',
+                department: '학교정책과',
+                description: '청소년 관련 범죄 예방 및 대응'
+            },
+            {
+                category: 'multiculture',
+                title: '세종시가족센터',
+                phone: '044-862-9336',
+                department: '유초등교육과',
+                description: '다문화 가족 상담 및 지원'
+            },
+            {
+                category: 'multiculture',
+                title: '세종시이주노동자복지센터',
+                phone: '044-867-2982',
+                department: '유초등교육과',
+                description: '이주배경 아동 지원 서비스'
+            },
+            {
+                category: 'special',
+                title: '세종시장애인복지관',
+                phone: '044-865-3325',
+                department: '유초등교육과',
+                description: '장애 학생을 위한 종합 복지 서비스'
+            },
+            {
+                category: 'special',
+                title: '세종시발달장애인지원센터',
+                phone: '044-414-9176',
+                department: '유초등교육과',
+                description: '발달장애 학생 지원'
+            },
+            {
+                category: 'health',
+                title: '세종기초정신건강복지센터',
+                phone: '044-865-5225',
+                department: '학교안전과',
+                description: '학생 정신건강 지원 서비스'
+            },
+            {
+                category: 'health',
+                title: '세종학생건강센터',
+                phone: '044-862-4200',
+                department: '학교안전과',
+                description: '학생 건강 종합 관리'
+            },
+            {
+                category: 'ngo',
+                title: '초록우산 세종지역본부',
+                phone: '044-865-5527',
+                department: '교육지원부',
+                description: '아동 복지 및 지원 프로그램'
+            },
+            {
+                category: 'ngo',
+                title: '굿네이버스 충청권역본부',
+                phone: '042-368-5590',
+                department: '교육지원부',
+                description: '아동 권리 증진을 위한 활동'
+            }
+        ];
+
+        // Load all network data initially
+        loadNetworkData('all');
+
+        // Tab click event
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('tab-active'));
+                // Add active class to clicked button
+                this.classList.add('tab-active');
+                
+                // Load data based on tab
+                const tab = this.getAttribute('data-tab');
+                loadNetworkData(tab);
+            });
+        });
+
+        // Function to load network data
+        function loadNetworkData(category) {
+            networkContent.innerHTML = '';
+            
+            let filteredData = networkData;
+            if (category !== 'all') {
+                filteredData = networkData.filter(item => item.category === category);
+            }
+            
+            filteredData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-xl shadow-md overflow-hidden transition-all card-hover';
+                card.innerHTML = `
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-bold text-gray-800">${item.title}</h3>
+                            <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">${item.department}</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">${item.description}</p>
+                        <div class="flex items-center text-gray-700">
+                            <i class="fas fa-phone mr-2 text-indigo-600"></i>
+                            <span>${item.phone}</span>
+                        </div>
+                    </div>
+                `;
+                networkContent.appendChild(card);
+            });
+        }
+
+        // FAQ functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                // Toggle answer
+                answer.classList.toggle('hidden');
+                
+                // Rotate icon
+                if (answer.classList.contains('hidden')) {
+                    icon.classList.remove('transform', 'rotate-180');
+                } else {
+                    icon.classList.add('transform', 'rotate-180');
+                }
+            });
+        });
+
+        // Form submission
+        const supportForm = document.getElementById('studentSupportForm');
+        
+        supportForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const schoolName = document.getElementById('schoolName').value;
+            const studentName = document.getElementById('studentName').value;
+            const supportAreas = [];
+            document.querySelectorAll('input[name="supportArea"]:checked').forEach(checkbox => {
+                supportAreas.push(checkbox.value);
+            });
+            
+            // Show alert (in a real app, this would be an AJAX call)
+            alert(`${schoolName} ${studentName} 학생의 지원 신청이 접수되었습니다.\n지원 영역: ${supportAreas.join(', ')}`);
+            
+            // Reset form
+            supportForm.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
